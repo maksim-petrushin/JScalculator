@@ -1,7 +1,15 @@
 const ValueButton = (props)=>{
-
+    let handleMe;
+        if(props.state.firstVal !== "" && props.state.operator !== ""){
+            handleMe= props.handleSecond;
+        }
+        else{      
+            handleMe= props.handle;
+        }
+    
+    
     return(
-        <button className="normal">{props.value}</button>
+        <button value={props.value} className="normal" onClick={handleMe}>{props.value}</button>
     )
 }
 

@@ -29,6 +29,16 @@ body {
   position:relative;
   top:11px;
   left:11px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1px;
+}
+.show{
+  background-color: blue;
+  height:60px;
+  width:80px;
 }
 .buttonContainer{
   width:323px;
@@ -60,6 +70,13 @@ body {
 .zero{
   background-color: red;
   width:161px;
+  height:70px;
+  font-weight: bold;
+}
+
+.delButton{
+  background-color: red;
+  width: 161px;
   height:70px;
   font-weight: bold;
 }

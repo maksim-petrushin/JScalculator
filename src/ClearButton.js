@@ -1,7 +1,7 @@
 const ClearButton = (props)=>{
 
     return(
-        <button className="normal">{props.value}</button>
+        <button className="delButton" onClick={props.handleDelete}>{props.value}</button>
     )
 }
 
