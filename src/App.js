@@ -13,8 +13,7 @@ class App extends React.Component{
       secondVal: "",
       result: "",
       operator: "",
-      clearStatus: " no",
-      calculate: " no"
+      equation: ""
     }
     this.handleNumber = this.handleNumber.bind(this);
     this.handleSecond = this.handleSecond.bind(this);
@@ -29,43 +28,69 @@ class App extends React.Component{
       secondVal: "",
       result: " ",
       operator: "",
+      equation: "",
     })
   }
+  
   handleNumber(event){
     this.setState((state)=>{
+
       return {
-        firstVal: state.firstVal.concat(event.target.value)
+        firstVal: state.firstVal.concat(event.target.value),
+        equation: state.firstVal.concat(event.target.value)+state.operator
       }
     })
   }
   handleSecond(event){
     this.setState((state)=>{
       return {
-        secondVal: state.secondVal.concat(event.target.value)
+        secondVal: state.secondVal.concat(event.target.value),
+        equation: state.firstVal+state.operator+state.secondVal.concat(event.target.value)
       }
     })
   }
   handleOperator(event){
-    this.setState({
-        operator: event.target.value
-    })
+    this.setState((state)=>({
+        operator: event.target.value,
+        equation: state.firstVal+event.target.value
+    }))
   }
   handleOperation(){
     this.setState((state)=>{
       if(state.operator === "X"){
-        return {result: parseFloat(state.firstVal)*parseFloat(state.secondVal)}
+        return {result: parseFloat(state.firstVal)*parseFloat(state.secondVal),
+          firstVal: ""+(parseFloat(state.firstVal)*parseFloat(state.secondVal)),
+          secondVal: "",
+          operator: "",
+          equation: state.firstVal+state.operator+state.secondVal+"="+(parseFloat(state.firstVal)*parseFloat(state.secondVal))}
       }
       else if(state.operator === "/"){
-        return {result: parseFloat(state.firstVal)/parseFloat(state.secondVal)}
+        return {result: parseFloat(state.firstVal)/parseFloat(state.secondVal),
+        firstVal: ""+(parseFloat(state.firstVal)/parseFloat(state.secondVal)),
+        secondVal: "",
+        operator: "",
+        equation: state.firstVal+state.operator+state.secondVal+"="+(parseFloat(state.firstVal)/parseFloat(state.secondVal))}
       }
       else if(state.operator === "+"){
-        return {result: parseFloat(state.firstVal)+parseFloat(state.secondVal)}
+        return {result: parseFloat(state.firstVal)+parseFloat(state.secondVal),
+          firstVal: ""+(parseFloat(state.firstVal)+parseFloat(state.secondVal)),
+          secondVal: "",
+          operator: "",
+          equation: state.firstVal+state.operator+state.secondVal+"="+(parseFloat(state.firstVal)+parseFloat(state.secondVal))}
       }
       else if(state.operator === "-"){
-        return {result: parseFloat(state.firstVal)-parseFloat(state.secondVal)}
+        return {result: ""+(parseFloat(state.firstVal)-parseFloat(state.secondVal)),
+          firstVal: ""+(parseFloat(state.firstVal)-parseFloat(state.secondVal)),
+          secondVal: "",
+          operator: "",
+          equation: state.firstVal+state.operator+state.secondVal+"="+(parseFloat(state.firstVal)-parseFloat(state.secondVal))}
       }
       else if(state.operator === "%"){
-        return {result: parseFloat(state.firstVal)%parseFloat(state.secondVal)}
+        return {result: parseFloat(state.firstVal)%parseFloat(state.secondVal),
+          firstVal: ""+(parseFloat(state.firstVal)%parseFloat(state.secondVal)),
+          secondVal: "",
+          operator: "",
+          equation: state.firstVal+state.operator+state.secondVal+"="+(parseFloat(state.firstVal)%parseFloat(state.secondVal))}
       }
       
     })
@@ -79,7 +104,7 @@ class App extends React.Component{
         <div className="screen">
           <div className="show">{this.state.firstVal}</div>
           <div className="show">{this.state.secondVal}</div>
-          <div className="show">{this.state.result}</div>
+          <div className="show">{this.state.equation}</div>
           <div className="show">{this.state.operator}</div>
         </div>
         <div className="buttonContainer">

@@ -12,7 +12,17 @@ body {
   width: 100vw;
   position: relative;
 }
+button{
+  border: none;
+  color: white;
+  font-weight: bolder;
+  background-color: gray;
+}
+button:hover{
+  border: 1px solid rgb(161, 161, 161);
+  color: black;
 
+}
 .calculator{
   background-color: black;
   width: 345px;
@@ -62,20 +72,32 @@ body {
   gap: 1px;
 }
 .normal{
-  background-color: red;
+  background-color: rgb(75, 75, 75);
+  width:80px;
+  height:70px;
+  font-weight: bold;
+}
+.enter{
+  background-color: rgb(0, 55, 117);
+  width:80px;
+  height:70px;
+  font-weight: bold;
+}
+.operator{
+  background-color: rgb(112, 112, 112);
   width:80px;
   height:70px;
   font-weight: bold;
 }
 .zero{
-  background-color: red;
+  background-color: rgb(75, 75, 75);
   width:161px;
   height:70px;
   font-weight: bold;
 }
 
 .delButton{
-  background-color: red;
+  background-color: rgb(131, 0, 0);
   width: 161px;
   height:70px;
   font-weight: bold;
